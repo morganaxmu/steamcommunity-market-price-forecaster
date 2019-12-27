@@ -25,5 +25,5 @@
 import json
 filename = 'Gems.json'
 with open(filename) as f:
-   data = json.loads(str(f), strict=False)
+   data = f.read()
    print(data)

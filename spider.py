@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  crawler.py
+#  spider.py
 #  
 #  Copyright 2019 billy huang <billy huang@DESKTOP-77CQ0AV>
 #  
@@ -37,4 +37,3 @@ content = json.loads(strhtml.text)
 filename = 'Gems.json'
 with open(filename,'w', encoding='utf-8') as name:
    name.write(str(content))
-
