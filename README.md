@@ -15,9 +15,10 @@ prices里每一段代表一个节点。第一行代表时间；第二行是价�
 {"success":true,"price_prefix":"\u00a5","price_suffix":"","prices":[["Dec 11 2014 01: +0",2.524,"1249"],["Dec 12 2014 01: +0",0.785,"2116860"],["Dec 13 2014 01: +0",4.049,"11038"],["Dec 14 2014 01: +0",4.656,"149886"],["Dec 15 2014 01: +0",5.848,"147895"]}
 ```
 ## 2. 爬虫设置
-crawler.py中的header需要自己定制，一般找headers直接F12，转到networks，然后选第一个steamcommunity.com，找到User-Agent，Cookie这两项即可。
+爬虫中的header需要自己定制，一般找headers直接F12，转到networks，然后选第一个steamcommunity.com，找到User-Agent，Cookie这两项即可。
+找到这两项之后，用笔记本打开headers.json，填到对应的地方。
 爬虫会把抓取到的数据，以json格式储存在工作路径。
-若欲更改保存的文件名字，只需要更改
+若欲更改保存的文件名字，只需要更改spider.py代码中的
 ```
 filename = ''
 ```
