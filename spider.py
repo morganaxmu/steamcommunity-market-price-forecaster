@@ -26,14 +26,14 @@
 
 import requests 
 import json
-headers={
-        'Host': 'steamcommunity.com',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
-        'Cookie': }
+with open('headers.json') as f:
+   headers = f.read()
+   headers = eval(headers)
 #headers直接F12，转到networks，然后选第一个steamcommunity.com
 url= 'https://steamcommunity.com/market/pricehistory/?appid=753&market_hash_name=753-Sack of Gems' 
 strhtml=requests.get(url,headers=headers,verify=False) 
 content = json.loads(strhtml.text)
 filename = 'Gems.json'
-with open(filename,'w', encoding='utf-8') as name:
+with open(filename,'w',encoding='utf-8') as name:
    name.write(str(content))
+print('spider got them!")

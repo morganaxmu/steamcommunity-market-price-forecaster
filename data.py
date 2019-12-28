@@ -23,7 +23,30 @@
 #  
 
 import json
+import csv
 filename = 'Gems.json'
 with open(filename) as f:
    data = f.read()
-   print(data)
+   data = eval(data)
+   p_data = data['prices']
+   times = []
+   prices = []
+   amouts = []
+   for item in range(len(p_data)):
+	   proxy = p_data[item]
+	   times.append(proxy[0])
+	   prices.append(proxy[1])
+	   amouts.append(proxy[2])
+filename1 = 'time.csv'
+filename2 = 'price.csv'
+filename3 = 'amout.csv'
+with open(filename1, 'w', newline='') as cf1:
+	csv1 = csv.writer(cf1)
+	csv1.writerow(times)
+with open(filename2, 'w', newline='') as cf2:
+	csv1 = csv.writer(cf2)
+	csv1.writerow(prices)
+with open(filename3, 'w', newline='') as cf3:
+	csv1 = csv.writer(cf3)
+	csv1.writerow(amouts)
+print("We now got the data!")
