@@ -22,12 +22,14 @@ prices里每一段代表一个节点。第一行代表时间；第二行是价�
 ```
 filename = ''
 ```
+## 3.使用
+运行spider.py即可。
 # 二、数据清洗
 直接运行data.py即可。
 steam提供的数据，最近一个月的数据频率是every hour，之前的数据则是every day。时间序列一般处理等时间间隔的数据比较合适，所以该程序会砍掉爬虫爬到的数据中最后一个月的数据，并保存为data.csv；之后，它会把爬虫爬到的数据全部保存为data_all.csv。
 
 # 三、模型
-模型部分使用R完成（尬笑），因为我不会用python做时间序列分析。
+模型部分使用R完成（尬笑），因为我不会用python做时间序列分析。在Rstudio中打开model.r即可。
 利用autoarima函数直接获得ARIMA模型，如果不熟悉时间序列分析，请务必记住其反馈的ARIMA(p,i,q)中的p,q值。
 之后进行ADF test和McLeod.Li test，检验通过后再套用GARCH模型。因为一般GARCH模型都是套用GARCH（1，1），我也就懒得再搞AIC和BIC了。
 模型的最后一部分是作图，forecast30是ARIMA的图，forecast2是GARCH模型，最后一个plot则是把最后一个月被砍掉的数据呈现出来，以此进行对比。
