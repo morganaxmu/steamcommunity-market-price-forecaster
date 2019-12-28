@@ -28,12 +28,19 @@ import numpy as np
 filename = 'Gems.json'
 with open(filename) as f:
    data = f.read()
+   data = data.replace(': +0','')
    data = eval(data)
    p_data = data['prices']
-   for item in range(len(p_data)):
+   for item in range(len(p_data)-720):
 	   proxy = p_data[item]
 	   filename1 = 'data.csv'
 	   with open(filename1, 'a', newline='') as cf1:
 		   csv1 = csv.writer(cf1)
 		   csv1.writerow(proxy)
+for item in range(len(p_data)):
+		proxy = p_data[item]
+		filename2 = 'data_all.csv'
+		with open(filename2, 'a', newline='') as cf2:
+		   csv2 = csv.writer(cf2)
+		   csv2.writerow(proxy)
 print("We now got the data!")
