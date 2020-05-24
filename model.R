@@ -1,6 +1,5 @@
 library(readr)
 library(fGarch)
-library(TSA)
 library(rugarch)
 library(forecast)
 library(tseries)
